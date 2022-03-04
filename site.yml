@@ -39,7 +39,7 @@
 
   - name: print choices - multiple select
     debug:
-      msg: 'multiple select: {{ survey_multiple_select }}'
+      msg: 'multiple select: {{ survey_multiple_choices }}'
 
   - name: print choices - multiple select
     debug:
