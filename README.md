@@ -135,7 +135,7 @@ controller_surveys Survey Questions
 Job Output
 ------------
 
-```json
+```java
 Identity added: /runner/artifacts/212/ssh_key_data (/runner/artifacts/212/ssh_key_data)
 SSH password: 
 
