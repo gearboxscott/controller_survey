@@ -41,8 +41,8 @@
     debug:
       msg: 'multiple select: {{ survey_multiple_choices }}'
 
-  - name: print choices - multiple select
+  - name: print choices - how to use description with value to split out to use value
     debug:
       msg: 
-        - "vlan: {{ survey_choice_indexed.split(':')[0] }}"
-        - "network: {{ survey_choice_indexed.split(':')[1] }}"
+        - "VLAN: {{ survey_choice_indexed.split(':')[0] }}"
+        - "NETWORK: {{ survey_choice_indexed.split(':')[1] }}"
