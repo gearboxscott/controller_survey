@@ -132,6 +132,40 @@ controller_surveys Survey Questions
         variable: survey_choice_indexed
 ```
 
+Dependencies
+------------
+
+None.
+
+controller_surveys Project Playbook
+----------------
+
+Including an example of how to use your project (for instance, with variables passed in as parameters) is always nice for users too:
+
+```yaml
+  - name: print survey_name
+    debug:
+      msg: 'name: {{ survey_name }}'
+
+  - name: print survey_password
+    debug: 
+      msg: 'password: {{ survey_password }}'
+
+  - name: print choices - single select
+    debug:
+      msg: 'single select: {{ survey_choices }}'
+
+  - name: print choices - multiple select
+    debug:
+      msg: 'multiple select: {{ survey_multiple_choices }}'
+
+  - name: print choices - multiple select
+    debug:
+      msg: |
+        - "vlan: {{ survey_choice_indexed.split(':')[0] }}"
+        - "network: {{ survey_choice_indexed.split(':')[1] }}"
+```
+
 Job Output
 ------------
 
@@ -171,40 +205,6 @@ ok: [rhel7test.digitalanvil.local] => {
 
 PLAY RECAP *********************************************************************
 localhost : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-```
-
-Dependencies
-------------
-
-None.
-
-controller_surveys Project Playbook
-----------------
-
-Including an example of how to use your project (for instance, with variables passed in as parameters) is always nice for users too:
-
-```yaml
-  - name: print survey_name
-    debug:
-      msg: 'name: {{ survey_name }}'
-
-  - name: print survey_password
-    debug: 
-      msg: 'password: {{ survey_password }}'
-
-  - name: print choices - single select
-    debug:
-      msg: 'single select: {{ survey_choices }}'
-
-  - name: print choices - multiple select
-    debug:
-      msg: 'multiple select: {{ survey_multiple_choices }}'
-
-  - name: print choices - multiple select
-    debug:
-      msg: |
-        - "vlan: {{ survey_choice_indexed.split(':')[0] }}"
-        - "network: {{ survey_choice_indexed.split(':')[1] }}"
 ```
 
 License
