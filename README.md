@@ -1,43 +1,170 @@
 controller_surveys Project
 =========
 
-A brief description of the project controller_surveys goes here.
+Demostrate how to use controller job template surveys
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the project should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+none
 
 controller_surveys Variables
 --------------
 
-A description of the settable variables for this project should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+* survey_name: ''
+* survey_password: ''
+* survey_choices: ''
+```
+dog
+cat
+fish
+bird
+```
+* survey_multiple_choices: ''
+```
+formula 1
+nascar
+indy car
+cart
+```
+* survey_choice_indexed: ''
+```
+VLAN1: 10.10.2.0/24
+VLAN2: 10.10.3.0/23
+VLAN3: 10.10.10.0/24
+VLAN4: 10.10.11.0/24
+```
+
+controller_surveys Survey Questions
+--------------
+
+```yaml
+    survey_spec:
+      description: ''
+      name: ''
+      spec:
+      - choices: ''
+        default: Tiger Woods
+        formattedChoices:
+        - choice: ''
+          id: 0
+          isDefault: false
+        max: 1024
+        min: 0
+        new_question: false
+        question_description: ''
+        question_name: Enter Name
+        required: true
+        type: text
+        variable: survey_name
+      - choices: ''
+        default: ''
+        max: 1024
+        min: 0
+        new_question: true
+        question_description: ''
+        question_name: Enter Password
+        required: true
+        type: password
+        variable: survey_password
+      - choices: 'dog
+
+          cat
+
+          fish
+
+          bird'
+        default: cat
+        formattedChoices:
+        - choice: dog
+          id: 0
+          isDefault: false
+        - choice: cat
+          id: 1
+          isDefault: true
+        - choice: fish
+          id: 2
+          isDefault: false
+        - choice: bird
+          id: 3
+          isDefault: false
+        max: 1024
+        min: 0
+        new_question: false
+        question_description: ''
+        question_name: Pick One
+        required: true
+        type: multiplechoice
+        variable: survey_choices
+      - choices: 'Formula 1
+
+          NASCAR
+
+          Indy Car
+
+          CART'
+        default: 'Formula 1
+
+          Indy Car'
+        max: 1024
+        min: 0
+        new_question: true
+        question_description: ''
+        question_name: Pick Car Racing Series
+        required: true
+        type: multiselect
+        variable: survey_multiple_choices
+      - choices: 'VLAN1: 10.10.2.0/24
+
+          VLAN2: 10.10.3.0/24
+
+          VLAN3: 10.10.10.0/24
+
+          VLAN4: 10.10.11:0/24'
+        default: 'VLAN3: 10.10.10.0/24'
+        max: 1024
+        min: 0
+        new_question: true
+        question_description: ''
+        question_name: Pick a VLAN
+        required: true
+        type: multiselect
+        variable: survey_choice_indexed
+```
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None.
 
 controller_surveys Project Playbook
 ----------------
 
 Including an example of how to use your project (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - name: Project controller_surveys
-      hosts: all
-      gather_facts: no
-    
-      tasks:
-     - name: some role
-        include_role:
-          name: some role
-          apply:
-            tags:
-              - some tag
-        vars:
-          # add variables if needed else delete entire section
-        tags:
-          - always
+```yaml
+  - name: print survey_name
+    debug:
+      msg: 'name: {{ survey_name }}'
+
+  - name: print survey_password
+    debug: 
+      msg: 'password: {{ survey_password }}'
+
+  - name: print choices - single select
+    debug:
+      msg: 'single select: {{ survey_choices }}'
+
+  - name: print choices - multiple select
+    debug:
+      msg: 'multiple select: {{ survey_multiple_choices }}'
+
+  - name: print choices - multiple select
+    debug:
+      msg: |
+        - "vlan: {{ survey_choice_indexed.split(':')[0] }}"
+        - "network: {{ survey_choice_indexed.split(':')[1] }}"
+```
 
 License
 -------
@@ -47,4 +174,4 @@ GPL
 Author Information
 ------------------
 
-An optional section for the project authors to include contact information, or a website (HTML is not allowed).
+Scott Parker (sparker@redhat.com)
