@@ -30,7 +30,7 @@
       msg: 'name: {{ survey_name }}'
 
   - debug: print password
-      msg: 'password: {{ survey_assword }}'
+      msg: 'password: {{ survey_password }}'
 
   - name: print choices - single select
     debug:
