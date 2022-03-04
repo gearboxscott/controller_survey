@@ -132,6 +132,47 @@ controller_surveys Survey Questions
         variable: survey_choice_indexed
 ```
 
+Job Output
+------------
+
+```json
+Identity added: /runner/artifacts/212/ssh_key_data (/runner/artifacts/212/ssh_key_data)
+SSH password: 
+
+PLAY [Project controller_surveys] **********************************************
+
+TASK [print survey_name] *******************************************************
+ok: [rhel7test.digitalanvil.local] => {
+    "msg": "name: Tiger Woods"
+}
+
+TASK [print survey_password] ***************************************************
+ok: [rhel7test.digitalanvil.local] => {
+    "msg": "password: redhat123"
+}
+
+TASK [print choices - single select] *******************************************
+ok: [rhel7test.digitalanvil.local] => {
+    "msg": "single select: cat"
+}
+
+TASK [print choices - multiple select] *****************************************
+ok: [rhel7test.digitalanvil.local] => {
+    "msg": "multiple select: ['Formula 1', 'Indy Car']"
+}
+
+TASK [print choices - how to use description with value to split out to use value] ***
+ok: [rhel7test.digitalanvil.local] => {
+    "msg": [
+        "VLAN: VLAN3",
+        "NETWORK:  10.10.10.0/24"
+    ]
+}
+
+PLAY RECAP *********************************************************************
+localhost : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+```
+
 Dependencies
 ------------
 
