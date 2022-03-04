@@ -11,23 +11,23 @@ none
 controller_surveys Variables
 --------------
 
-* survey_name: ''
-* survey_password: ''
-* survey_choices: ''
+* `survey_name: ''`
+* `survey_password: ''`
+* `survey_choices: ''`
 ```
 dog
 cat
 fish
 bird
 ```
-* survey_multiple_choices: ''
+* `survey_multiple_choices: ''`
 ```
 formula 1
 nascar
 indy car
 cart
 ```
-* survey_choice_indexed: ''
+* `survey_choice_indexed: ''`
 ```
 VLAN1: 10.10.2.0/24
 VLAN2: 10.10.3.0/23
