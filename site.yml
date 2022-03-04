@@ -44,5 +44,5 @@
   - name: print choices - multiple select
     debug:
       msg: |
-        "vlan: {{ survey_choice_indexed.split(':')[0] }}"
-        "network: {{ survey_choice_indexed.split(':')[1] }}"
+        - "vlan: {{ survey_choice_indexed.split(':')[0] }}"
+        - "network: {{ survey_choice_indexed.split(':')[1] }}"
