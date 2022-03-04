@@ -1,0 +1,45 @@
+---
+# site.yml for controller_surveys
+
+- name: Project controller_surveys
+  hosts: all
+  gather_facts: no
+  vars:
+    survey_name: ''
+    survey_password: ''
+    survey_choices: ''
+    # dog
+    # cat
+    # fish
+    # bird
+    survey_multiple_choices: ''
+    # formula 1
+    # nascar
+    # indy car
+    # cart
+    survey_choice_indexed: ''
+    # vlan1: 10.10.2.0/24
+    # vlan2: 10.10.3.0/23
+    # vlan3: 10.10.10.0/24
+    # vlan4: 10.10.11.0/24
+
+  tasks:
+
+  - name: print survey_namenn
+    debug:
+      msg: 'name: {{ survey_name }}'
+
+  - debug: print password
+      msg: 'password: {{ password }}'
+
+  - name: print choices - single select
+    debug:
+      msg: 'single select: {{ survey_choices }}'
+
+  - name: print choices - multiple select
+    debug:
+      msg: 'multiple select: {{ survey_multiple_select }}'
+
+  - name: print choices - multiple select
+    debug:
+      msg: "vlan: {{ survey_multiple_select.split(':')[0] }} network: {{ survey_multiple_select.split(':')[1] }}"
