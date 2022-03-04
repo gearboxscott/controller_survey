@@ -25,11 +25,12 @@
 
   tasks:
 
-  - name: print survey_namenn
+  - name: print survey_name
     debug:
       msg: 'name: {{ survey_name }}'
 
-  - debug: print password
+  - name: print survey_password
+    debug: print password
       msg: 'password: {{ survey_password }}'
 
   - name: print choices - single select
