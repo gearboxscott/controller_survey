@@ -1,5 +1,5 @@
-controller_surveys Project
-=========
+controller_surveys
+==================
 
 Demostrate how to use controller job template surveys
 
@@ -8,8 +8,8 @@ Requirements
 
 none
 
-controller_surveys Variables
---------------
+Variables
+---------
 
 * `survey_name: ''`
 * `survey_password: ''`
@@ -35,7 +35,7 @@ VLAN3: 10.10.10.0/24
 VLAN4: 10.10.11.0/24
 ```
 
-controller_surveys Survey Questions
+Survey Questions
 --------------
 
 ```yaml
@@ -137,8 +137,8 @@ Dependencies
 
 None.
 
-controller_surveys Project Playbook
-----------------
+Playbook
+--------
 
 Including an example of how to use your project (for instance, with variables passed in as parameters) is always nice for users too:
 
@@ -167,7 +167,7 @@ Including an example of how to use your project (for instance, with variables pa
 ```
 
 Job Output
-------------
+----------
 
 ```java
 Identity added: /runner/artifacts/212/ssh_key_data (/runner/artifacts/212/ssh_key_data)
